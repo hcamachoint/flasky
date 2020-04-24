@@ -12,7 +12,7 @@ from uuid import uuid4
 
 #DEFINICIONES DE LA APP
 app = Flask(__name__, template_folder='template')
-app.config['SQLALCHEMY_DATABASE_URI'] = "mysql://toor:toor@localhost/flasky"
+app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://flasky:flasky@localhost/flasky"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['JWT_SECRET_KEY'] = 'Super-Secret' #LLAVE DE LA JWT
 app.config['JWT_BLACKLIST_ENABLED'] = True
