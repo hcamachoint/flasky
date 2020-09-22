@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import jwt_decode from 'jwt-decode'
 import axios from 'axios'
+//import { deluser } from './UserFunctions'
 
 class Profile extends Component{
   constructor(){
@@ -28,7 +29,7 @@ class Profile extends Component{
 
   delUser(){
     const tok = 'Bearer ' + localStorage.usertoken
-    axios.delete('user',{'headers': {
+    axios.delete('http://localhost:8000/api/user',{'headers': {
         "Authorization" : tok
       }
     }).then(res => {

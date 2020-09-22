@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import { login } from './UserFunctions'
 import setProfile from '../redux/actions/setProfile'
+import Swal from 'sweetalert2'
 
 class Login extends Component {
   constructor(props) {
@@ -33,10 +34,17 @@ class Login extends Component {
         this.props.history.push('/profile')
       }else if (res.data.status === 403) {
         this.props.history.push('/login')
-        console.log(res.data.msg)
+        Swal.fire(
+          'Something went wrong',
+          res.data.msg,
+          'error'
+        )
       }else {
-        this.props.history.push('/login')
-        console.log("No server connection")
+        Swal.fire(
+          'Something went wrong',
+          res.data.msg,
+          'error'
+        )
       }
     })
   }
